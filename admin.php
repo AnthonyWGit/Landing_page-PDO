@@ -20,16 +20,32 @@
                         <div class="cardPrice">
                             <div class="twoLists">
                                 <ul class="left">
-                                    <li>Name</li>
-                                    <li>Sale</li>
-                                    <li>OnlineSpace</li>
-                                    <li>Domain</li>
+                                    <li>Name</br>
+                                    <form action="" method = "get" class="form-example"><input type="text" name="name" id="name" required> </form>
+                                    </li>
+                                    <li>Sale
+                                    <form action="" method = "get" class="form-example"><input type="text" name="name" id="name" required> </form>
+                                    </li>
+                                    <li>OnlineSpace
+                                    <form action="" method = "get" class="form-example"><input type="text" name="name" id="name" required> </form>
+                                    </li>
+                                    <li>Domain
+                                    <form action="" method = "get" class="form-example"><input type="text" name="name" id="name" required> </form>
+                                    </li>
                                 </ul>
                                 <ul class="right">
-                                    <li>Price</li>       <!-- using db data -->
-                                    <li>bandwidth</li>
-                                    <li>Support</li>
-                                    <li>Hidden Fees</li>
+                                    <li>Price
+                                    <form action="" method = "get" class="form-example"><input type="text" name="name" id="name" required> </form>
+                                    </li>       <!-- using db data -->
+                                    <li>bandwidth
+                                    <form action="" method = "get" class="form-example"><input type="text" name="name" id="name" required> </form>
+                                    </li>
+                                    <li>supportNo
+                                    <form action="" method = "get" class="form-example"><input type="text" name="name" id="name" required> </form>
+                                    </li>
+                                    <li>Hidden Fees
+                                    <form action="" method = "get" class="form-example"><input type="text" name="name" id="name" required> </form>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

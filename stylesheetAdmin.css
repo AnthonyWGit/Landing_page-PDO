@@ -44,6 +44,7 @@ ul
     align-content: center;
     align-items: center;
     min-height: 50vh;
+    padding: 0 1rem 0 1rem;
 }
 
 
@@ -59,6 +60,7 @@ ul
     flex-wrap: wrap;
     flex-grow: 1;
     justify-content: space-around;
+    max-width: 40%;
 }
 .cardPrice > .twoLists > .right
 {
@@ -68,6 +70,7 @@ ul
     align-items: flex-end;
     flex-grow: 1;
     justify-content: space-around;
+    max-width: 40%;
 }
 
 .twoLists
