@@ -14,7 +14,7 @@
         <div class="tablePrices">
                     <div class="gridFlexes">
                         <div class="cardPrice">
-                            <h4>Starter</h4>
+                            <h4>Starter</h4><?= $sale1 > 0 ? "<div class = sticker>".$sale2."% <br/>SALE</div>" : "";?> 
                             <p><span class="bigNumeric">$<?= $price1 ?></span><span class="grey">/month</span></p>
                             <div class="twoLists">
                                 <ul class="left">
@@ -56,7 +56,7 @@
                             <div class="pushButton"><button>Join now !</button></div>
                         </div>
                         <div class="cardPrice">
-                            <h4>Professionnal</h4>
+                            <h4>Professionnal</h4><?= $sale3 > 0 ? "<div class = sticker>".$sale2."% <br/>SALE</div>" : "";?> 
                             <p><span class="bigNumeric">$<?= $price3 ?></span><span class="grey">/month</span></p>
                             <div class="twoLists">
                                 <ul class="left">
