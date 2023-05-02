@@ -1,0 +1,114 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+ul
+{
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: center;
+}
+.wrapper
+{
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
+.gridFlexes
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    width: 100%;
+    min-height: 50vh;
+}
+.cardPrice
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    width: 25%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+
+.cardPrice.cardPrice.sale
+{
+    transform: translateY(-2vh);
+
+}
+.cardPrice > .twoLists> .left
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+.cardPrice > .twoLists > .right
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.twoLists
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 3vh;
+    gap: .5em;
+    flex-grow: 1;
+}
+
+.left > li , .right > li
+{
+    padding: 0.1em 0 0.1em 0;
+}
+
+.cardPrice.sale
+{
+    position: relative;
+}
+.sticker
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #416fc9;
+    overflow: hidden;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: white;
+    width: 20%;
+    height: 7.5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.grey
+{
+    color: grey;
+}
