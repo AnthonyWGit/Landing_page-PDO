@@ -14,70 +14,40 @@
     <div class="wrapper">
         <div class="tablePrices">
                     <div class="gridFlexes">
-                        <div class="cardPrice">
-                            <h4>Starter</h4><?= $sale1 > 0 ? "<div class = sticker>".$sale2."% <br/>SALE</div>" : "";?> 
-                            <p><span class="bigNumeric">$<?= $price1 ?></span><span class="grey">/month</span></p>
+                        <?php foreach (getPricings() as $pricing)
+                        {
+                        $ifSaleCard = $pricing["sale"] > 0 ? "sale" : "";
+                        $ifSaleSticker = $pricing["sale"] > 0 ? "<div class = sticker>".$pricing["sale"]."% <br/>SALE</div>": "";
+                        $BandwidthIcon = ($pricing['bandwidth']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
+                        $onlineSpaceIcon = ($pricing['onlineSpace']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
+                        $supportNoIcon = ($pricing['supportNo']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
+                        $domainIcon = ($pricing['domain']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
+                        $hiddenFeesIcon = ($pricing['hiddenFees']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
+                        ?>
+                        <div class="cardPrice <?= $ifSaleCard?>">
+                            <h4><?= $pricing["name"] ?></h4><?= $ifSaleSticker?>
+                            <p><span class="bigNumeric">$<?= $pricing["priceF"] ?></span><span class="grey">/month</span></p>
                             <div class="twoLists">
                                 <ul class="left">
-                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Bandwith</li>
-                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Onlinespace</li>
-                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>':"";?>Support:NO</li>
-                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Domain</li>
-                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>':"";?>Hidden Fees</li>
+                                    <li><i class='fa-regular <?= $BandwidthIcon ?> '></i>Bandwith</li>
+                                    <li><i class='fa-regular <?= $onlineSpaceIcon ?> '></i>Onlinespace</li>
+                                    <li><i class='fa-regular <?= $supportNoIcon ?>' ></i>Support:No</li>
+                                    <li><i class='fa-regular <?= $domainIcon ?>' ></i>Domain</li>
+                                    <li><i class='fa-regular <?= $hiddenFeesIcon ?>' ></i>Hidden Fees</li>
                                 </ul>
                                 <ul class="right">
-                                    <li>1 GB</li>
-                                    <li>500 MB</li>
-                                    <li>No</li>
-                                    <li>1</li>
-                                    <li>No</li>
+                                    <li><?= $pricing["bandwidth"] ?></li>
+                                    <li><?= $pricing["onlineSpace"] ?></li>
+                                    <li><?= $pricing["supportNo"] ?></li>
+                                    <li><?= $pricing["domain"] ?></li>
+                                    <li><?= $pricing["hiddenFees"] ?></li>
                                 </ul>
                             </div>
                             <div class="pushButton"><button>Join now !</button></div>
                         </div>
-                        <div class="cardPrice sale">
-                            <h4>Advanced</h4><?= $sale2 > 0 ? "<div class = sticker>".$sale2."% <br/>SALE</div>" : "";?> 
-                            <p><span class="bigNumeric">$<?= $price2 ?></span><span class="grey">/month</span></p>
-                            <div class="twoLists">
-                                <ul class="left">
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Bandwith</li>
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Onlinespace</li>
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Support:NO</li>
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Domain</li>
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Hidden Fees</li>
-                                </ul>
-                                <ul class="right">
-                                    <li>2 GB</li>
-                                    <li>1 GB</li>
-                                    <li>Yes</li>
-                                    <li>3</li>
-                                    <li>No</li>
-                                </ul>
-                            </div>
-                            <div class="pushButton"><button>Join now !</button></div>
-                        </div>
-                        <div class="cardPrice">
-                            <h4>Professionnal</h4><?= $sale3 > 0 ? "<div class = sticker>".$sale2."% <br/>SALE</div>" : "";?> 
-                            <p><span class="bigNumeric">$<?= $price3 ?></span><span class="grey">/month</span></p>
-                            <div class="twoLists">
-                                <ul class="left">
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Bandwith</li>
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Onlinespace</li>
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Support:NO</li>
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Domain</li>
-                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Hidden Fees</li>
-                                </ul>
-                                <ul class="right">
-                                    <li>3 GB</li>
-                                    <li>1 GB</li>
-                                    <li>Yes</li>
-                                    <li>Unlimited</li>
-                                    <li>No</li>
-                                </ul>
-                            </div>
-                            <div class="pushButton"><button>Join now !</button></div>
-                        </div>
+                    <?php }?>                        
                     </div>
+
         </div>
     </div>
 </body>
