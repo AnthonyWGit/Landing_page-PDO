@@ -17,13 +17,13 @@
                         <?php foreach (getPricings() as $pricing)
                         {
                         $ifSaleCard = $pricing["sale"] > 0 ? "sale" : "";
-                        $ifSaleSticker = $pricing["sale"] > 0 ? "<div class = sticker>".$pricing["sale"]."% <br/>SALE</div>": "";
+                        $ifSaleSticker = $pricing["sale"] > 0 ? "<div class = sticker>".$pricing["sale"]."% <br/>SALE</div>": ""; //Need this one to apply CSS class to a card when sale exists
                         $BandwidthIcon = ($pricing['bandwidth']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
                         $onlineSpaceIcon = ($pricing['onlineSpace']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
-                        $supportNoIcon = ($pricing['supportNo']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
+                        $supportNoIcon = ($pricing['supportNo'])  == "Yes" ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
                         $domainIcon = ($pricing['domain']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
-                        $hiddenFeesIcon = ($pricing['hiddenFees']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
-                        ?>
+                        $hiddenFeesIcon = ($pricing['hiddenFees']) == "Yes" ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
+                        ?>  <!-- below HTML construction of a card -->
                         <div class="cardPrice <?= $ifSaleCard?>">
                             <h4><?= $pricing["name"] ?></h4><?= $ifSaleSticker?>
                             <p><span class="bigNumeric">$<?= $pricing["priceF"] ?></span><span class="grey">/month</span></p>
@@ -36,7 +36,7 @@
                                     <li><i class='fa-regular <?= $hiddenFeesIcon ?>' ></i>Hidden Fees</li>
                                 </ul>
                                 <ul class="right">
-                                    <li><?= $pricing["bandwidth"] ?></li>
+                                    <li><?= $pricing["bandwidth"] ?></li>       <!-- using db data -->
                                     <li><?= $pricing["onlineSpace"] ?></li>
                                     <li><?= $pricing["supportNo"] ?></li>
                                     <li><?= $pricing["domain"] ?></li>
