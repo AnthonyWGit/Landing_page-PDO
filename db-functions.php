@@ -19,7 +19,7 @@ function connexion()
 function getPricings()
 {
     $mySQLconnection = connexion();
-    $sqlQuery1 =    'SELECT * , FORMAT(price, 2, "fr_FR") AS "priceF" FROM pricing LIMIT 3';
+    $sqlQuery1 =    'SELECT * , FORMAT(price, 2, "fr_FR") AS "priceF" FROM pricing LIMIT 3'; //priceF means priceFormated
     $persoLieuStatement = $mySQLconnection->prepare($sqlQuery1);                        //Prepare, execute, then fetch to retrieve data
     $persoLieuStatement->execute();                                                     //The data we retrieve are in array form
     $pricings = $persoLieuStatement->fetchAll();

@@ -18,15 +18,15 @@
                         {
                         $ifSaleCard = $pricing["sale"] > 0 ? "sale" : "";
                         $ifSaleSticker = $pricing["sale"] > 0 ? "<div class = sticker>".$pricing["sale"]."% <br/>SALE</div>": ""; //Need this one to apply CSS class to a card when sale exists
-                        $BandwidthIcon = ($pricing['bandwidth']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
-                        $onlineSpaceIcon = ($pricing['onlineSpace']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
+                        $BandwidthIcon = ($pricing['bandwidth']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
+                        $onlineSpaceIcon = ($pricing['onlineSpace']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
                         $supportNoIcon = ($pricing['supportNo'])  == "Yes" ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
-                        $domainIcon = ($pricing['domain']) ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark";
+                        $domainIcon = ($pricing['domain']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
                         $hiddenFeesIcon = ($pricing['hiddenFees']) == "Yes" ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
                         ?>  <!-- below HTML construction of a card -->
                         <div class="cardPrice <?= $ifSaleCard?>">
                             <h4><?= $pricing["name"] ?></h4><?= $ifSaleSticker?>
-                            <p><span class="bigNumeric">$<?= $pricing["priceF"] ?></span><span class="grey">/month</span></p>
+                            <p><span class="bigNumeric">$<?= $pricing["priceF"] ?></span><span class="grey">/month</span></p> <!--priceF means price formated -->
                             <div class="twoLists">
                                 <ul class="left">
                                     <li><i class='fa-regular <?= $BandwidthIcon ?> '></i>Bandwith</li>
