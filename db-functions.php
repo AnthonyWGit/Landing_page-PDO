@@ -24,6 +24,6 @@ $price3 = $table[2]["price"];
 $sale1 = $table[0]["sale"];
 $sale2 = $table[1]["sale"];
 $sale3 = $table[2]["sale"];
-
-var_dump($table);
-echo $table[0]["price"];
+$icon1 = $table[0]["icon"];
+$icon2 = $table[1]["icon"];
+$icon3 = $table[2]["icon"];

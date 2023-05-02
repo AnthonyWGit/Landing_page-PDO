@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="stylesheet.css">
     <title>Document</title>
 </head>
@@ -18,11 +19,11 @@
                             <p><span class="bigNumeric">$<?= $price1 ?></span><span class="grey">/month</span></p>
                             <div class="twoLists">
                                 <ul class="left">
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Bandwith</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Onlinespace</li>
-                                    <li><i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>Support:NO</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Domain</li>
-                                    <li><i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>Hidden Fees</li>
+                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Bandwith</li>
+                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Onlinespace</li>
+                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>':"";?>Support:NO</li>
+                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Domain</li>
+                                    <li><?= $icon1 == 1 ? '<i class="fa-regular fa-circle-xmark" style="color: #ff0000;"></i>':"";?>Hidden Fees</li>
                                 </ul>
                                 <ul class="right">
                                     <li>1 GB</li>
@@ -39,11 +40,11 @@
                             <p><span class="bigNumeric">$<?= $price2 ?></span><span class="grey">/month</span></p>
                             <div class="twoLists">
                                 <ul class="left">
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Bandwith</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Onlinespace</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Support:NO</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Domain</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Hidden Fees</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Bandwith</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Onlinespace</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Support:NO</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Domain</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Hidden Fees</li>
                                 </ul>
                                 <ul class="right">
                                     <li>2 GB</li>
@@ -60,11 +61,11 @@
                             <p><span class="bigNumeric">$<?= $price3 ?></span><span class="grey">/month</span></p>
                             <div class="twoLists">
                                 <ul class="left">
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Bandwith</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Onlinespace</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Support:NO</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Domain</li>
-                                    <li><i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>Hidden Fees</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Bandwith</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Onlinespace</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Support:NO</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Domain</li>
+                                    <li><?= $icon2 == 1 ? '<i class="fa-regular fa-circle-check" style="color: #59ff00;"></i>':"";?>Hidden Fees</li>
                                 </ul>
                                 <ul class="right">
                                     <li>3 GB</li>

@@ -4,7 +4,14 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
-
+ul
+{
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: center;
+}
 .wrapper
 {
     padding-top: 10%;
