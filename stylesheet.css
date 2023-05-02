@@ -1,0 +1,127 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper
+{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
+.gridFlexes
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    width: 100%;
+    min-height: 50vh;
+}
+.cardPrice
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    width: 25%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+
+.cardPrice.cardPrice.sale
+{
+    transform: translateY(-2vh);
+
+}
+.cardPrice > .twoLists> .left
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.cardPrice > .twoLists > .right
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.twoLists
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 3vh;
+    gap: .5em;
+}
+.cardPrice > h4
+{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+.pushButton
+{
+    padding-top: 0.5em;
+    padding-bottom : 1em;
+    display: flex;
+    flex-wrap:wrap
+}
+.cardPrice > .pushButton > button
+{
+    width: 150px;
+    height: 3vh;
+    color: white;
+    background: #416fc9;
+    border: none;
+    border-radius: 20px;
+}
+.left > li , .right > li
+{
+    padding: 0.1em 0 0.1em 0;
+}
+.bigNumeric
+{
+    font-size: 3em;
+    color: #416fc9 ;
+}
+.cardPrice.sale
+{
+    position: relative;
+}
+.sticker
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #416fc9;
+    overflow: hidden;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: white;
+    width: 20%;
+    height: 7.5vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.grey
+{
+    color: grey;
+}
