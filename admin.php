@@ -1,9 +1,12 @@
 <?php 
 require "db-functions.php"; 
 var_dump($_POST);
+$success = updatePricings();
+var_dump($success);
 if (empty($_POST))
 {
     echo "lul";
+
 }
 else
 {
@@ -26,6 +29,13 @@ else
     <div class="wrapper">
         <div class="tablePrices">
                     <div class="gridFlexes">
+                        <div class="msg">
+                            <? if (isset($success))
+                            {
+                              updatePricings() == true ? "Mise à jour effectuée" : "Erreur dans la mise à jour";  
+                            }  
+                            else null?>
+                        </div>
                         <?php foreach (getPricings() as $pricing)
                         {
                         ?>  <!-- below HTML construction of a card -->
@@ -64,7 +74,7 @@ else
                             <input type="hidden" value="<?= $pricing["id_pricing"]?>" id="id_pricing" name="id_pricing">                                
                                 <button type="submit" type="button">Envoyez</button></form>                                
                             </div>
-                        <?php }?>                        
+                        <?php }?>                   
                      </div>
         </div>
     </div>

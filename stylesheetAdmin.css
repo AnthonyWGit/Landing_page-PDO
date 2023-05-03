@@ -115,3 +115,8 @@ ul
 {
     color: grey;
 }
+.msg
+{
+    display: flex;
+    justify-content: center;
+}
