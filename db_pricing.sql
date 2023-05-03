@@ -19,26 +19,41 @@
 CREATE DATABASE IF NOT EXISTS `landing_page` /*!40100 DEFAULT CHARACTER SET utf32 COLLATE utf32_swedish_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `landing_page`;
 
+-- Listage de la structure de table landing_page. email
+CREATE TABLE IF NOT EXISTS `email` (
+  `id_email` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) COLLATE utf32_swedish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_email`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf32 COLLATE=utf32_swedish_ci;
+
+-- Listage des données de la table landing_page.email : ~4 rows (environ)
+INSERT INTO `email` (`id_email`, `email`) VALUES
+	(1, 'example@yahoo.co.in'),
+	(2, 'example@yahoo.fr'),
+	(3, 'test@test.fr'),
+	(4, 'trenet@gmail.com');
+
 -- Listage de la structure de table landing_page. pricing
 CREATE TABLE IF NOT EXISTS `pricing` (
   `id_pricing` int NOT NULL AUTO_INCREMENT,
-  `price` float(8,2) NOT NULL DEFAULT '0.00',
-  `icon` int NOT NULL,
-  `sale` int NOT NULL,
-  `bandwidth` varchar(50) CHARACTER SET utf32 COLLATE utf32_swedish_ci NOT NULL,
-  `onlineSpace` varchar(50) COLLATE utf32_swedish_ci NOT NULL,
-  `supportNo` varchar(50) COLLATE utf32_swedish_ci NOT NULL,
-  `domain` varchar(50) COLLATE utf32_swedish_ci NOT NULL DEFAULT '',
-  `hiddenFees` varchar(50) COLLATE utf32_swedish_ci NOT NULL,
-  `name` varchar(50) COLLATE utf32_swedish_ci NOT NULL,
+  `price` float(8,2) DEFAULT NULL,
+  `icon` int DEFAULT NULL,
+  `sale` int DEFAULT NULL,
+  `bandwidth` varchar(50) CHARACTER SET utf32 COLLATE utf32_swedish_ci DEFAULT NULL,
+  `onlineSpace` varchar(50) CHARACTER SET utf32 COLLATE utf32_swedish_ci DEFAULT NULL,
+  `supportNo` varchar(50) CHARACTER SET utf32 COLLATE utf32_swedish_ci DEFAULT NULL,
+  `domain` varchar(50) CHARACTER SET utf32 COLLATE utf32_swedish_ci DEFAULT '',
+  `hiddenFees` varchar(50) CHARACTER SET utf32 COLLATE utf32_swedish_ci DEFAULT NULL,
+  `name` varchar(50) CHARACTER SET utf32 COLLATE utf32_swedish_ci DEFAULT NULL,
+  `commandes` int DEFAULT NULL,
   PRIMARY KEY (`id_pricing`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf32 COLLATE=utf32_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf32 COLLATE=utf32_swedish_ci;
 
 -- Listage des données de la table landing_page.pricing : ~3 rows (environ)
-INSERT INTO `pricing` (`id_pricing`, `price`, `icon`, `sale`, `bandwidth`, `onlineSpace`, `supportNo`, `domain`, `hiddenFees`, `name`) VALUES
-	(1, 9.99, 1, 0, '1 GB', '500 Mb', 'No', '1', 'No', 'Starter'),
-	(2, 19.99, 1, 20, '2 GB', '1 GB', 'Yes', '3', 'No', 'Intermediate'),
-	(3, 29.99, 1, 0, '3 GB', '2 GB', 'Yes', 'Unlimited', 'No', 'Advanced');
+INSERT INTO `pricing` (`id_pricing`, `price`, `icon`, `sale`, `bandwidth`, `onlineSpace`, `supportNo`, `domain`, `hiddenFees`, `name`, `commandes`) VALUES
+	(1, 9.99, 1, 5, '1 GB', '500 Mb', 'No', '1', 'No', 'Poke', 10),
+	(2, 5.00, 1, 25, '460 GB', 'test', 'Yes', 'test', 'test', 'Poke', 57),
+	(3, 29.99, 1, 0, '3 GB', '2 GB', 'Yes', 'Unlimited', 'No', 'Advanced', 9);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
