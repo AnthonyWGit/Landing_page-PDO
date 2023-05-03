@@ -46,9 +46,19 @@ function updateQuantity()
 {
     $sqlQuery = 'UPDATE pricing SET commandes = (commandes + 1)
     WHERE id_pricing = :id_pricing';
-                $mySQLconnection = connexion();
-                $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
-                $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_STR);
-                $persoLieuStatement->execute();       
+    $mySQLconnection = connexion();
+    $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
+    $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_STR);
+    $persoLieuStatement->execute();       
+}
+
+
+function addEmail()
+{
+    $sqlQuery = "INSERT INTO email (email) VALUES ('example@yahoo.fr')";
+    $mySQLconnection = connexion();
+    $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
+    $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_STR);
+    $persoLieuStatement->execute();  
 }
 ?>
