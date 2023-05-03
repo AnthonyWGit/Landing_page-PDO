@@ -43,7 +43,10 @@
                                     <li><?= $pricing["hiddenFees"] ?></li>
                                 </ul>
                             </div>
-                            <div class="pushButton"><button>Join now !</button></div>
+                            <form action ="subscribePrice.php" method="post"><?php var_dump($_POST); ?>
+   
+                            <div class="pushButton"><button type="submit" name="id_pricing" value="<?= $pricing["id_pricing"]?>">Join now !</button></div>
+                            </form>
                         </div>
                     <?php }?>                        
                     </div>

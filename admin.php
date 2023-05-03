@@ -56,7 +56,7 @@ require "db-functions.php";
                                     </ul>
                                 </div>
                             <input type="hidden" value="<?= $pricing["id_pricing"]?>" id="id_pricing" name="id_pricing">                                
-                                <button type="submit" type="button">Envoyez</button></form>                                
+                                <button type="submit">Envoyez</button></form>                                
                             </div>
                         <?php }?>                   
                      </div>
