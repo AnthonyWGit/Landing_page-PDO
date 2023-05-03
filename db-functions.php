@@ -1,5 +1,4 @@
 <?php
-
 function connexion()
 {
     try {
@@ -42,6 +41,4 @@ function updatePricings()
         }
     }
 }       
-     
-
-var_dump($_POST);
+?>

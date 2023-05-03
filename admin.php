@@ -1,33 +1,7 @@
 <?php 
+
 require "db-functions.php"; 
-var_dump($_POST);
-var_dump($switch);
-if (empty($_POST))
-{
-    echo "lul";
-}
-else
-{
-    $switch = true;
-    foreach ($_POST as $fieldName=>$value)              //looping over all field values
-    {echo"aa";
-        if (!empty($value) && $fieldName != "id_pricing") //id is a field in hidden form
-        {echo"bb";
-            if ($fieldName == "supportNo")
-            {
-                if ($value !="Yes" && $value !="No")
-                {
-                    var_dump($fieldName);
-                    var_dump($value);
-                    echo"cc";   
-                    $switch = false;
-                } 
-            }
-        }
-    }
-    var_dump($switch);
-    $switch == true ? updatePricings() : "";
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -45,11 +19,6 @@ else
         <div class="tablePrices">
                     <div class="gridFlexes">
                         <div class="msg">
-                            <? if (isset($switch))
-                            {
-                              $switch == true ? "Mise à jour effectuée" : "Erreur dans la mise à jour";  
-                            }  
-                            else null?>
                         </div>
                         <?php foreach (getPricings() as $pricing)
                         {
@@ -58,7 +27,7 @@ else
                             <div class="twoLists">
                                 <ul class="left">
                                     <li>Name</br>
-                                    <form action="admin.php?update" method="post" class="form-example">
+                                    <form action="confirmation.php" method="post" class="form-example">
                                         <input type="text" name="name" id="name">
                                         </li>
                                         <li>Sale
@@ -94,4 +63,3 @@ else
         </div>
     </div>
 </body>
-
