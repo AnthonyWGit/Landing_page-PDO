@@ -1,16 +1,32 @@
 <?php 
 require "db-functions.php"; 
 var_dump($_POST);
-$success = updatePricings();
-var_dump($success);
+var_dump($switch);
 if (empty($_POST))
 {
     echo "lul";
 }
 else
 {
-    updatePricings();
-    header("Location:admin.php");
+    $switch = true;
+    foreach ($_POST as $fieldName=>$value)              //looping over all field values
+    {echo"aa";
+        if (!empty($value) && $fieldName != "id_pricing") //id is a field in hidden form
+        {echo"bb";
+            if ($fieldName == "supportNo")
+            {
+                if ($value !="Yes" && $value !="No")
+                {
+                    var_dump($fieldName);
+                    var_dump($value);
+                    echo"cc";   
+                    $switch = false;
+                } 
+            }
+        }
+    }
+    var_dump($switch);
+    $switch == true ? updatePricings() : "";
 }
 ?>
 
@@ -29,9 +45,9 @@ else
         <div class="tablePrices">
                     <div class="gridFlexes">
                         <div class="msg">
-                            <? if (isset($success))
+                            <? if (isset($switch))
                             {
-                              updatePricings() == true ? "Mise à jour effectuée" : "Erreur dans la mise à jour";  
+                              $switch == true ? "Mise à jour effectuée" : "Erreur dans la mise à jour";  
                             }  
                             else null?>
                         </div>

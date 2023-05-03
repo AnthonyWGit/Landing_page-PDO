@@ -38,12 +38,9 @@ function updatePricings()
             $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
             $persoLieuStatement->bindValue($fieldName, $value, PDO::PARAM_STR);
             $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_STR);
-            var_dump($persoLieuStatement);
             $persoLieuStatement->execute();       
         }
     }
-            unset($_POST);
-            var_dump($persoLieuStatement);     
 }       
      
 
