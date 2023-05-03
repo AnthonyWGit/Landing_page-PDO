@@ -1,8 +1,7 @@
 <?php 
 session_start();
 require "db-functions.php"; 
-$golem = 5;
-$_SESSION['msg'] = $golem;
+$_SESSION['msg'] = "placeholder";
 updateQuantity();
 header("Location:index.php");
 ?>

@@ -19,7 +19,7 @@ session_start();             //We need session for notifications
             <?php
             if (isset($_SESSION["msg"]))
             {
-                echo "<div>Vous êtes inscrit</div>";
+                echo "<div class='msg'>Vous êtes inscrit</div>";
                 unset($_SESSION['msg']);
             }
             ?>

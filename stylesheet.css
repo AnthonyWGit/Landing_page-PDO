@@ -133,3 +133,16 @@ ul
 {
     color: grey;
 }
+
+.tablePrices
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.msg
+{
+    padding-bottom: 5em;
+}
