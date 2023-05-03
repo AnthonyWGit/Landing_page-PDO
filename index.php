@@ -1,4 +1,7 @@
-<?php require "db-functions.php" ?>
+<?php 
+require "db-functions.php" ;
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +16,13 @@
 <body>
     <div class="wrapper">
         <div class="tablePrices">
+            <?php
+            if (isset($_SESSION["msg"]))
+            {
+                echo "<div>Vous êtes inscrit</div>";
+                unset($_SESSION['msg']);
+            }
+            ?>
                     <div class="gridFlexes">
                         <?php foreach (getPricings() as $pricing)
                         {
@@ -43,7 +53,7 @@
                                     <li><?= $pricing["hiddenFees"] ?></li>
                                 </ul>
                             </div>
-                            <form action ="subscribePrice.php" method="post"><?php var_dump($_POST); ?>
+                            <form action ="subscribePrice.php" method="post">
    
                             <div class="pushButton"><button type="submit" name="id_pricing" value="<?= $pricing["id_pricing"]?>">Join now !</button></div>
                             </form>
