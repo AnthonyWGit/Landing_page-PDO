@@ -6,7 +6,6 @@ var_dump($success);
 if (empty($_POST))
 {
     echo "lul";
-
 }
 else
 {
