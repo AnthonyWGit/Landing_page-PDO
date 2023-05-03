@@ -27,33 +27,23 @@ function getPricings()
 
 function updatePricings()
 {
-
+    foreach ($_POST as $fieldName=>$value)
     {
+        if (!empty($value) && $fieldName !== "id_pricing")
+        {
+            $sqlQuery = 'UPDATE pricing 
+            SET '. $fieldName .' = :'.$fieldName.' 
+            WHERE id_pricing = :id_pricing';
             $mySQLconnection = connexion();
-            $sqlQuery =    'UPDATE pricing 
-            SET sale = :sale,
-                name = :name,
-                bandwidth = :bandwidth,
-                price = :price,
-                onlineSpace = :onlineSpace,
-                supportNo = :supportNo,
-                domain = :domain,
-                hiddenFees = :hiddenFees
-            WHERE    id_pricing = :id_pricing';
-            $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);    
-            $persoLieuStatement->bindValue('sale', $_POST["sale"], PDO::PARAM_STR);
-            $persoLieuStatement->bindValue('name', $_POST["name"], PDO::PARAM_STR);
-            $persoLieuStatement->bindValue('bandwidth', $_POST["bandwidth"], PDO::PARAM_STR);
-            $persoLieuStatement->bindValue('price', $_POST["price"], PDO::PARAM_STR);
-            $persoLieuStatement->bindValue('onlineSpace', $_POST["onlineSpace"], PDO::PARAM_STR);
-            $persoLieuStatement->bindValue('supportNo', $_POST["supportNo"], PDO::PARAM_STR);
-            $persoLieuStatement->bindValue('domain', $_POST["domain"], PDO::PARAM_STR);
-            $persoLieuStatement->bindValue('hiddenFees', $_POST["hiddenFees"], PDO::PARAM_STR); 
-            $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_STR);             
-            $persoLieuStatement->execute();      
-            unset($_POST);  
+            $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
+            $persoLieuStatement->bindValue($fieldName, $value, PDO::PARAM_STR);
+            $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_STR);
+            var_dump($persoLieuStatement);
+            $persoLieuStatement->execute();
+        }
     }
 
+            var_dump($persoLieuStatement);          
 }
 
 var_dump($_POST);
