@@ -55,10 +55,10 @@ function updateQuantity()
 
 function addEmail()
 {
-    $sqlQuery = "INSERT INTO email (email) VALUES ('example@yahoo.fr')";
+    $sqlQuery = "INSERT INTO email (email) VALUES (:email)";
     $mySQLconnection = connexion();
     $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
-    $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_STR);
+    $persoLieuStatement->bindValue('email', $_POST["email"], PDO::PARAM_STR);
     $persoLieuStatement->execute();  
 }
 ?>

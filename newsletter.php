@@ -13,12 +13,21 @@ require "db-functions.php"; ?>
 </head>
 <body>
     <div class="wrapper">
-        <div class="newsletter">
-            <form action="" method="post">
-            <input type="email" id="email" size="30">
-            <button type="submit" name="news" id="news">Soubscribe</button>
-            </form>
-        </div>
+
+            <div class="newsletter">
+                <?php
+                if (isset($_SESSION["news"]))
+                {
+                    echo $_SESSION["news"];
+                    unset($_SESSION["news"]);
+                }
+                ?>
+                <form action="newsletterTreatment.php" method="post">
+                <input type="email" name="email" id="email" size="30">
+                <button type="submit">Soubscribe</button>
+                </form>
+            </div>
+
     </div>
 </body>
 </html>
