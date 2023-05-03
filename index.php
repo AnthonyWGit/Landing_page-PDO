@@ -1,6 +1,6 @@
 <?php 
-require "db-functions.php" ;
-session_start();
+require "db-functions.php" ; //Our queries are in there
+session_start();             //We need session for notifications
 ?>
 
 <!DOCTYPE html>

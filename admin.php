@@ -1,6 +1,6 @@
 <?php 
-session_start();
-require "db-functions.php"; 
+session_start();                //We need session for notifications
+require "db-functions.php";     //Our queries are in there
 
 ?>
 
@@ -17,6 +17,26 @@ require "db-functions.php";
 <body>
     <div class="wrapper">
         <div class="tablePrices">
+            <?php 
+            if (isset($_SESSION["admin"]))                              //Displaying notifications when form sent
+            {
+                if ($_SESSION["admin"] == "No changes were made")   //Need to work on that : id is always sent so the form is never empty
+                {
+                    echo $_SESSION["admin"];
+                    unset($_SESSION["admin"]);
+                }
+                else if ($_SESSION["admin"]== "There is an error somewhere")
+                {
+                    echo $_SESSION["admin"];
+                    unset($_SESSION["admin"]);
+                }
+                else if ($_SESSION["admin"] == "Good boy")
+                {
+                    echo $_SESSION["admin"];
+                    unset($_SESSION["admin"]);
+                }                
+            }
+            ?>
                     <div class="gridFlexes">
                         <div class="msg">
                         </div>
@@ -27,7 +47,7 @@ require "db-functions.php";
                             <div class="twoLists">
                                 <ul class="left">
                                     <li>Name</br>
-                                    <form action="confirmation.php" method="post" class="form-example">
+                                    <form action="confirm.php" method="post" class="form-example">
                                         <input type="text" name="name" id="name">
                                         </li>
                                         <li>Sale
@@ -54,8 +74,8 @@ require "db-functions.php";
                                         <input type="text" name="hiddenFees" id="hiddenFees">
                                         </li>   
                                     </ul>
-                                </div>
-                            <input type="hidden" value="<?= $pricing["id_pricing"]?>" id="id_pricing" name="id_pricing">                                
+                                </div> <!-- Need the imput below to retrieve the id of wich card we modify -->
+                            <input type="hidden" value="<?= $pricing["id_pricing"]?>" id="id_pricing" name="id_pricing">                                  
                                 <button type="submit">Envoyez</button></form>                                
                             </div>
                         <?php }?>                   

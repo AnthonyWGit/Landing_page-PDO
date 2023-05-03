@@ -1,8 +1,10 @@
-<?php require "db-functions.php"; 
+<?php require "db-functions.php";   //We need session for notifications
+session_start();                    //Our queries are in there
 var_dump($_POST);
 if (empty($_POST) || !isset($_POST))
 {
     echo "lul";
+    $_SESSION["admin"] = "No changes were made";
 }
 else
 {
@@ -19,12 +21,15 @@ else
                     var_dump($value);
                     echo"cc";   
                     $switch = false;
+                    $_SESSION["admin"] = "There is an error somewhere";
                 } 
             }
         }
     }
     var_dump($switch);
+    $switch == true ? $_SESSION["admin"] = "Good boy" : "";
     $switch == true ? updatePricings() : "";
+    header("Location:admin.php");
 }
 ?>
 <!DOCTYPE html>
