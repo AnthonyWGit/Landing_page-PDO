@@ -9,7 +9,8 @@ if (empty($_POST) || !isset($_POST))
 }
 else
 {
-    $switch = true;                                     //$switch var used for displaying messages 
+    $allowConfirm = true;                                     //$allowConfirm var used for displaying messages 
+    $filteredSale = filter_input(INPUT_POST, $_POST["sale"], FILTER_VALIDATE_INT); //Filtering sale
     foreach ($_POST as $fieldName=>$value)              //looping over all field values
     {
         echo "aa";
@@ -23,18 +24,26 @@ else
                     var_dump($fieldName);
                     var_dump($value);
                     echo "cc";   
-                    $switch = false;
+                    $allowConfirm = false;
                     $_SESSION["admin"] = "There is an error somewhere";
                 }
+            }
+            if (!$filteredSale) //If sale is false then it means something else than int has been sent
+            {
+                $allowConfirm = false;
+                $_SESSION["admin"] = "There is an error somewhere";
+                echo "VALUE FILTER";
+                var_dump($filteredSale);
             }
         }
     }
 
-    if ($switch) {
+    if ($allowConfirm) 
+    {
         $_SESSION["admin"] = "Good boy";
         updatePricings();
     }
-    header("Location:admin.php");
+    //header("Location:admin.php");
 
 }
 ?>
@@ -48,7 +57,7 @@ else
 </head>
 <body>
     <?php 
-        if ($switch == true)
+        if ($allowConfirm == true)
         {
             echo "Update ok";
         }
