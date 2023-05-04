@@ -3,8 +3,14 @@ session_start();                    //Our queries are in there
 var_dump($_POST);
 if (empty($_POST) || !isset($_POST))
 {
-    echo "lul";
+    echo "";
+    header("Location:admin.php");
+}
+else if (empty($_POST["name"]) && empty($_POST["price"]) && empty($_POST["sale"]) && empty($_POST["bandwidth"]) &&
+        empty($_POST["hiddenFees"]) && empty($_POST["domain"]) && empty($_POST["onlineSpace"]) && empty($_POST["supportNo"]))
+{
     $_SESSION["admin"] = "No changes were made";
+    header("Location:admin.php");
 }
 else
 {

@@ -30,9 +30,9 @@ session_start();             //We need session for notifications
                         $ifSaleSticker = $pricing["sale"] > 0 ? "<div class = sticker>".$pricing["sale"]."% <br/>SALE</div>": ""; //Need this one to apply CSS class to a card when sale exists
                         $BandwidthIcon = ($pricing['bandwidth']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
                         $onlineSpaceIcon = ($pricing['onlineSpace']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
-                        $supportNoIcon = ($pricing['supportNo'])  == "Yes" ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
+                        $supportNoIcon = ($pricing['supportNo'])  == mb_strtolower("Yes") ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
                         $domainIcon = ($pricing['domain']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
-                        $hiddenFeesIcon = ($pricing['hiddenFees']) == "Yes" ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
+                        $hiddenFeesIcon = ($pricing['hiddenFees']) == mb_strtolower("Yes") ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
                         ?>  <!-- below HTML construction of a card -->
                         <div class="cardPrice <?= $ifSaleCard?>">
                             <h4><?= $pricing["name"] ?></h4><?= $ifSaleSticker?>
