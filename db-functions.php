@@ -39,7 +39,7 @@ function getPricings()
     return $pricings;
 }
 
-// fonction d'origine
+// fonction d'origine - Original function
 // function updatePricings()
 // {
 //     foreach ($_POST as $fieldName=>$value)              //looping over all field values
@@ -88,7 +88,7 @@ function getPricings()
 //     }
 // }
 
-// fonction améliorée, en suivant la même logique
+// fonction améliorée, en suivant la même logique - Better function with same logic
 function updatePricings()
 {
     $sqlQuerySetPart = "SET ";
@@ -135,8 +135,9 @@ function updatePricings()
     var_dump($sqlQuery);
     $mySQLconnection = connexion();
     $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
-    $persoLieuStatement->bindValue($fieldName, $value, PDO::PARAM_STR); // TODO DUPLIQUER
-    $persoLieuStatement->execute($fieldsNameValue);
+    $persoLieuStatement->bindValue($fieldName, $value, PDO::PARAM_STR); // TODO DUPLIQUER // DUCPLICATE
+    $persoLieuStatement->execute($fieldsNameValue); //This basically does the same thing as bindValue but on multiple ones but 
+                                                    //we can't specify datatype : int by default
 }
 
 function updateQuantity()
@@ -148,7 +149,6 @@ function updateQuantity()
     $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_INT);
     $persoLieuStatement->execute();       
 }
-
 
 function addEmail()
 {
