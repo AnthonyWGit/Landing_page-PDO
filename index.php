@@ -23,44 +23,48 @@ session_start();             //We need session for notifications
                 unset($_SESSION['msg']);
             }
             ?>
-                    <div class="gridFlexes">
-                        <?php foreach (getPricings() as $pricing)
-                        {
-                        $ifSaleCard = $pricing["sale"] > 0 ? "sale" : "";
-                        $ifSaleSticker = $pricing["sale"] > 0 ? "<div class = sticker>".$pricing["sale"]."% <br/>SALE</div>": ""; //Need this one to apply CSS class to a card when sale exists
-                        $BandwidthIcon = ($pricing['bandwidth']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
-                        $onlineSpaceIcon = ($pricing['onlineSpace']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
-                        $supportNoIcon = ($pricing['supportNo'])  == mb_strtolower("Yes") ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
-                        $domainIcon = ($pricing['domain']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
-                        $hiddenFeesIcon = ($pricing['hiddenFees']) == mb_strtolower("Yes") ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
-                        ?>  <!-- below HTML construction of a card -->
-                        <div class="cardPrice <?= $ifSaleCard?>">
-                            <h4><?= $pricing["name"] ?></h4><?= $ifSaleSticker?>
-                            <p><span class="bigNumeric">$<?= $pricing["priceF"] ?></span><span class="grey">/month</span></p> <!--priceF means price formated -->
-                            <div class="twoLists">
-                                <ul class="left">
-                                    <li><i class='fa-regular <?= $BandwidthIcon ?> '></i>Bandwith</li>
-                                    <li><i class='fa-regular <?= $onlineSpaceIcon ?> '></i>Onlinespace</li>
-                                    <li><i class='fa-regular <?= $supportNoIcon ?>' ></i>Support:No</li>
-                                    <li><i class='fa-regular <?= $domainIcon ?>' ></i>Domain</li>
-                                    <li><i class='fa-regular <?= $hiddenFeesIcon ?>' ></i>Hidden Fees</li>
-                                </ul>
-                                <ul class="right">
-                                    <li><?= $pricing["bandwidth"] ?></li>       <!-- using db data -->
-                                    <li><?= $pricing["onlineSpace"] ?></li>
-                                    <li><?= $pricing["supportNo"] ?></li>
-                                    <li><?= $pricing["domain"] ?></li>
-                                    <li><?= $pricing["hiddenFees"] ?></li>
-                                </ul>
-                            </div>
-                            <form action ="subscribePrice.php" method="post">
-   
-                            <div class="pushButton"><button type="submit" name="id_pricing" value="<?= $pricing["id_pricing"]?>">Join now !</button></div>
-                            </form>
-                        </div>
-                    <?php }?>                        
-                    </div>
+            <div class="gridFlexes">
 
+                    <?php foreach (getPricings() as $pricing)
+                    {
+                    $ifSaleCard = $pricing["sale"] > 0 ? "sale" : "";
+                    $ifSaleSticker = $pricing["sale"] > 0 ? "<div class = sticker>".$pricing["sale"]."% <br/>SALE</div>": ""; //Need this one to apply CSS class to a card when sale exists
+                    $BandwidthIcon = ($pricing['bandwidth']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
+                    $onlineSpaceIcon = ($pricing['onlineSpace']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
+                    $supportNoIcon = ($pricing['supportNo'])  == mb_strtolower("Yes") ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
+                    $domainIcon = ($pricing['domain']) ? "fa-circle-check'"." style='color: #59ff00;'" : "";
+                    $hiddenFeesIcon = ($pricing['hiddenFees']) == mb_strtolower("Yes") ? "fa-circle-check'"." style='color: #59ff00;'" : "fa-circle-xmark'"." style='color: #ff0000;'"; 
+                    ?>  <!-- below HTML construction of a card -->
+
+                    <div class="cardPrice <?= $ifSaleCard?>">
+                        <h4><?= $pricing["name"] ?></h4><?= $ifSaleSticker?>
+                        <p>
+                            <span class="bigNumeric">$<?= $pricing["priceF"] ?></span><span class="grey">/month</span>
+                        </p> <!--priceF means price formated -->
+                        <div class="twoLists">
+                            <ul class="left">
+                                <li><i class='fa-regular <?= $BandwidthIcon ?> '></i>Bandwith</li>
+                                <li><i class='fa-regular <?= $onlineSpaceIcon ?> '></i>Onlinespace</li>
+                                <li><i class='fa-regular <?= $supportNoIcon ?>' ></i>Support:No</li>
+                                <li><i class='fa-regular <?= $domainIcon ?>' ></i>Domain</li>
+                                <li><i class='fa-regular <?= $hiddenFeesIcon ?>' ></i>Hidden Fees</li>
+                            </ul>
+                            <ul class="right">
+                                <li><?= $pricing["bandwidth"] ?></li>       <!-- using db data -->
+                                <li><?= $pricing["onlineSpace"] ?></li>
+                                <li><?= $pricing["supportNo"] ?></li>
+                                <li><?= $pricing["domain"] ?></li>
+                                <li><?= $pricing["hiddenFees"] ?></li>
+                            </ul>
+                        </div>
+                        <form action ="subscribePrice.php" method="post">
+                            <div class="pushButton">
+                                <button type="submit" name="id_pricing" value="<?= $pricing["id_pricing"]?>">Join now !</button>
+                            </div>
+                        </form>
+                    </div>
+                <?php }?>                        
+            </div>
         </div>
     </div>
 </body>

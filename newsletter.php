@@ -22,12 +22,14 @@ require "db-functions.php"; ?>
                     unset($_SESSION["news"]);
                 }
                 ?>
+
                 <form action="newsletterTreatment.php" method="post">
-                <input type="email" name="email" id="email" size="30">
-                <button type="submit">Soubscribe</button>
+
+                    <input type="email" name="email" id="email" size="30">
+
+                    <button type="submit">Soubscribe</button>
                 </form>
             </div>
-
     </div>
 </body>
 </html>
