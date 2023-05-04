@@ -1,11 +1,11 @@
 <?php
-session_start();
+
 
 function handleShutdown() {
     $error = error_get_last();
     if ($error !== null && $error['type'] === E_ERROR) {        //If there is an error and it is Fatal
       // A fatal error occurred - store message in session
-      $_SESSION["admin"]== "There is an error somewhere";
+      $_SESSION["admin"] = "There is an error somewhere";
       header('Location: admin.php');
       exit();
     }

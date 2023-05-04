@@ -34,7 +34,7 @@ else
         $_SESSION["admin"] = "Good boy";
         updatePricings();
     }
-    //header("Location:admin.php");
+    header("Location:admin.php");
 
 }
 ?>
@@ -60,7 +60,3 @@ else
 </body>
 </html>
 
-<?php
-unset($_POST);
-unset($switch);
-?>
