@@ -132,4 +132,5 @@ ul
 .form-example
 {
     display: flex;
+    flex-direction: column;
 }

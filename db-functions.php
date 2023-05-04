@@ -71,7 +71,6 @@ function getPricings()
 //                     $persoLieuStatement->bindValue('id_pricing', $_POST["id_pricing"], PDO::PARAM_INT);
 //                     $persoLieuStatement->execute();   
 //                 break;
-
 //                 default:
 //                     filter_input(INPUT_POST, $fieldName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);   //filtering data
 //                     $sqlQuery = 'UPDATE pricing             /*SQL request*/
@@ -87,7 +86,6 @@ function getPricings()
 //         }
 //     }
 // }
-
 // fonction améliorée, en suivant la même logique - Better function with same logic
 function updatePricings()
 {
