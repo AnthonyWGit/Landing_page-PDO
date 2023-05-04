@@ -26,10 +26,13 @@ function getPricings()
 
 function updatePricings()
 {
+
+
     foreach ($_POST as $fieldName=>$value)              //looping over all field values
     {
         if (!empty($value) && $fieldName !== "id_pricing") //id is a field in hidden form
     {       
+            filter_input(INPUT_POST, $fieldName, FILTER_SANITIZE_FULL_SPECIAL_CHARS);   //filtering data
             $sqlQuery = 'UPDATE pricing             /*SQL request*/
             SET '. $fieldName .' = :'.$fieldName.' 
             WHERE id_pricing = :id_pricing';

@@ -15,7 +15,7 @@ else
         {echo"bb";
             if ($fieldName == "supportNo")
             {
-                if ($value !="Yes" && $value !="No")
+                if (mb_strtolower($value) !="yes" && mb_strtolower($value) !="no")   //user can write Yes yes No no yEs nO, etc.
                 {
                     var_dump($fieldName);
                     var_dump($value);
@@ -26,10 +26,10 @@ else
             }
         }
     }
-    var_dump($switch);
     $switch == true ? $_SESSION["admin"] = "Good boy" : "";
     $switch == true ? updatePricings() : "";
     header("Location:admin.php");
+
 }
 ?>
 <!DOCTYPE html>
