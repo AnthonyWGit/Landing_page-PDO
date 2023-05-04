@@ -6,7 +6,7 @@ function handleShutdown() {
     if ($error !== null && $error['type'] === E_ERROR) {        //If there is an error and it is Fatal
       // A fatal error occurred - store message in session
       $_SESSION["admin"] = "There is an error somewhere";
-      header('Location: admin.php');
+      header('Location: index.php');
       exit();
     }
   }
@@ -150,11 +150,11 @@ function updateQuantity()
 
 function addEmail()
 {
-    filter_input(INPUT_POST, $_POST["email"], FILTER_SANITIZE_EMAIL);
+    $filteredEmailValue = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     $sqlQuery = "INSERT INTO email (email) VALUES (:email)";
     $mySQLconnection = connexion();
     $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
-    $persoLieuStatement->bindValue('email', $_POST["email"], PDO::PARAM_STR);
+    $persoLieuStatement->bindValue('email', $filteredEmailValue, PDO::PARAM_STR);
     $persoLieuStatement->execute();  
 }
 ?>

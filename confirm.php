@@ -11,6 +11,8 @@ else
 {
     $allowConfirm = true;                                     //$allowConfirm var used for displaying messages 
     $filteredSale = filter_input(INPUT_POST, "sale", FILTER_VALIDATE_INT); //Filtering sale
+    $convertedPrice = str_replace("," , "." , $_POST["price"]);
+    $filteredPrice = filter_var($convertedPrice, FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);   //filtering data. F commas :-)
     foreach ($_POST as $fieldName=>$value)              //looping over all field values
     {
         echo "aa";
@@ -35,6 +37,12 @@ else
                 $_SESSION["admin"] = "There is an error somewhere";
                 echo "VALUE FILTER";
                 var_dump($filteredSale);
+                header("Location:admin.php");
+            }
+            if (!$filteredPrice)
+            {
+                $allowConfirm = false;
+                $_SESSION["admin"] = "There is an error somewhere";                
                 header("Location:admin.php");
             }
         }
