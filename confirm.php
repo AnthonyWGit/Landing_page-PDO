@@ -10,7 +10,7 @@ if (empty($_POST) || !isset($_POST))
 else
 {
     $allowConfirm = true;                                     //$allowConfirm var used for displaying messages 
-    $filteredSale = filter_input(INPUT_POST, $_POST["sale"], FILTER_VALIDATE_INT); //Filtering sale
+    $filteredSale = filter_input(INPUT_POST, "sale", FILTER_VALIDATE_INT); //Filtering sale
     foreach ($_POST as $fieldName=>$value)              //looping over all field values
     {
         echo "aa";
