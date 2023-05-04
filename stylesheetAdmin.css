@@ -39,7 +39,7 @@ ul
     background-color: white;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-    width: 25%;
+    max-width: 27%;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -47,13 +47,7 @@ ul
     padding: 0 1rem 0 1rem;
 }
 
-
-.cardPrice.cardPrice.sale
-{
-    transform: translateY(-2vh);
-
-}
-.cardPrice > .twoLists> .left
+.left
 {
     display: flex;
     flex-direction: column;
@@ -62,7 +56,8 @@ ul
     justify-content: space-around;
     max-width: 40%;
 }
-.cardPrice > .twoLists > .right
+
+.right
 {
     display: flex;
     flex-direction: column;
@@ -81,34 +76,12 @@ ul
     padding-top: 3vh;
     gap: .5em;
     flex-grow: 1;
+    justify-content: center;
 }
 
 .left > li , .right > li
 {
     padding: 0.1em 0 0.1em 0;
-}
-
-.cardPrice.sale
-{
-    position: relative;
-}
-.sticker
-{
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #416fc9;
-    overflow: hidden;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    color: white;
-    width: 20%;
-    height: 7.5vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 .grey
@@ -133,4 +106,7 @@ ul
 {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
 }
+
