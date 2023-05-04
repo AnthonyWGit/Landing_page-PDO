@@ -1,40 +1,40 @@
 <?php require "db-functions.php";   //We need session for notifications
 session_start();                    //Our queries are in there
 var_dump($_POST);
+
 if (empty($_POST) || !isset($_POST))
 {
     echo "";
-    header("Location:admin.php");
-}
-else if (empty($_POST["name"]) && empty($_POST["price"]) && empty($_POST["sale"]) && empty($_POST["bandwidth"]) &&
-        empty($_POST["hiddenFees"]) && empty($_POST["domain"]) && empty($_POST["onlineSpace"]) && empty($_POST["supportNo"]))
-{
-    $_SESSION["admin"] = "No changes were made";
     header("Location:admin.php");
 }
 else
 {
     $switch = true;                                     //$switch var used for displaying messages 
     foreach ($_POST as $fieldName=>$value)              //looping over all field values
-    {echo"aa";
+    {
+        echo "aa";
         if (!empty($value) && $fieldName != "id_pricing") //id is a field in hidden form
-        {echo"bb";
-            if ($fieldName == "supportNo")
+        {
+            echo "bb";
+            if ($fieldName == "supportNo" || $fieldName == "hiddenFees")
             {
-                if (mb_strtolower($value) !="yes" && mb_strtolower($value) !="no")   //user can write Yes yes No no yEs nO, etc.
+                if (mb_strtolower($value) !="yes" && mb_strtolower($value) != "no")   //user can write Yes yes No no yEs nO, etc.
                 {
                     var_dump($fieldName);
                     var_dump($value);
-                    echo"cc";   
+                    echo "cc";   
                     $switch = false;
                     $_SESSION["admin"] = "There is an error somewhere";
-                } 
+                }
             }
         }
     }
-    $switch == true ? $_SESSION["admin"] = "Good boy" : "";
-    $switch == true ? updatePricings() : "";
-    header("Location:admin.php");
+
+    if ($switch) {
+        $_SESSION["admin"] = "Good boy";
+        updatePricings();
+    }
+    //header("Location:admin.php");
 
 }
 ?>
