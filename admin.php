@@ -20,12 +20,7 @@ require "db-functions.php";     //Our queries are in there
             <?php 
             if (isset($_SESSION["admin"]))                              //Displaying notifications when form sent
             {
-                if ($_SESSION["admin"] == "No changes were made")   //Need to work on that : id is always sent so the form is never empty
-                {
-                    echo $_SESSION["admin"];
-                    unset($_SESSION["admin"]);
-                }
-                else if ($_SESSION["admin"]== "There is an error somewhere")
+                if ($_SESSION["admin"]== "There is an error somewhere")
                 {
                     echo $_SESSION["admin"];
                     unset($_SESSION["admin"]);
