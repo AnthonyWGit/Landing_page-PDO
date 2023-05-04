@@ -58,6 +58,7 @@ function updateQuantity()
 
 function addEmail()
 {
+    filter_input(INPUT_POST, $_POST["email"], FILTER_SANITIZE_EMAIL);
     $sqlQuery = "INSERT INTO email (email) VALUES (:email)";
     $mySQLconnection = connexion();
     $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
