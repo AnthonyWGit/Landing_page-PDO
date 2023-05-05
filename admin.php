@@ -39,7 +39,7 @@ require "db-functions.php";     //Our queries are in there
                         {
                         ?>  <!-- below HTML construction of a card -->
                             <div class="cardPrice">
-                                <form action="confirm.php" method="post" class="form-example">
+                                <form action="confirm.php?id=<?=$pricing["id_pricing"]?>" method="post" class="form-example">
                                     <div class="twoLists">
                                         <ul class="left">
                                             <li>
@@ -77,8 +77,6 @@ require "db-functions.php";     //Our queries are in there
                                             </li>   
                                         </ul>
                                     </div> <!-- Need the imput below to retrieve the id of wich card we modify -->
-
-                                <input type="hidden" value="<?= $pricing["id_pricing"]?>" id="id_pricing" name="id_pricing" />
 
                                 <button type="submit">Envoyer</button>
                                 

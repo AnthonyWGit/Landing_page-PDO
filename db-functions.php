@@ -1,7 +1,7 @@
 <?php
 
 
-function handleShutdown() {
+/*function handleShutdown() {
     $error = error_get_last();
     if ($error !== null && $error['type'] === E_ERROR) {        //If there is an error and it is Fatal
       // A fatal error occurred - store message in session
@@ -10,8 +10,8 @@ function handleShutdown() {
       exit();
     }
   }
-  
-register_shutdown_function('handleShutdown');
+  */
+//register_shutdown_function('handleShutdown');
 
 function connexion()
 {
@@ -91,7 +91,6 @@ function updatePricings()
 {
     $sqlQuerySetPart = "SET ";
     $fieldsNameValue = [];
-
     foreach ($_POST as $fieldName => $value)              //looping over all field values
     {
         if (!empty($value)) //id is a field in hidden form
@@ -125,15 +124,16 @@ function updatePricings()
 
     echo "CHECK >> <br />>";
     var_dump($fieldsNameValue);
+    $fieldsNameValue["id_pricing"] = $_GET["id"];
 
     $sqlQuerySetPart = rtrim($sqlQuerySetPart, ", ");
 
     $sqlQuery = 'UPDATE pricing '. $sqlQuerySetPart
                 . ' WHERE id_pricing = :id_pricing';
     var_dump($sqlQuery);
+    var_dump($_GET);
     $mySQLconnection = connexion();
     $persoLieuStatement = $mySQLconnection->prepare($sqlQuery);
-    $persoLieuStatement->bindValue($fieldName, $value, PDO::PARAM_STR); // TODO DUPLIQUER // DUCPLICATE
     $persoLieuStatement->execute($fieldsNameValue); //This basically does the same thing as bindValue but on multiple ones but 
                                                     //we can't specify datatype : int by default
 }
