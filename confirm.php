@@ -28,7 +28,7 @@ else
                     echo "cc";   
                     $allowConfirm = false;
                     $_SESSION["admin"] = "There is an error somewhere";
-                    //header("Location:admin.php");
+                    header("Location:admin.php");
                 }
             }
             if (!$filteredSale) //If sale is false then it means something else than int has been sent
@@ -37,13 +37,13 @@ else
                 $_SESSION["admin"] = "There is an error somewhere";
                 echo "VALUE FILTER";
                 var_dump($filteredSale);
-                //header("Location:admin.php");
+                header("Location:admin.php");
             }
             if (!$filteredPrice)
             {
                 $allowConfirm = false;
                 $_SESSION["admin"] = "There is an error somewhere";                
-                //header("Location:admin.php");
+                header("Location:admin.php");
             }
         }
     }
@@ -53,7 +53,7 @@ else
         $_SESSION["admin"] = "Good boy";
         $id = $_GET["id"];
         updatePricings();
-        //header("Location:admin.php");        
+        header("Location:admin.php");        
     }
 
 

@@ -1,7 +1,7 @@
 <?php
 
 
-/*function handleShutdown() {
+function handleShutdown() {
     $error = error_get_last();
     if ($error !== null && $error['type'] === E_ERROR) {        //If there is an error and it is Fatal
       // A fatal error occurred - store message in session
@@ -10,8 +10,8 @@
       exit();
     }
   }
-  */
-//register_shutdown_function('handleShutdown');
+  
+register_shutdown_function('handleShutdown');
 
 function connexion()
 {
